@@ -5,19 +5,18 @@ import com.microservice.course.controller.sto.StudentDTO;
 import com.microservice.course.entity.Course;
 import com.microservice.course.http.response.StudentByCouseResponse;
 import com.microservice.course.persistence.ICourseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CourseServiceImpl implements ICourseService {
 
-    @Autowired
-    private ICourseRepository courseRepository;
+    private final ICourseRepository courseRepository;
 
-    @Autowired
-    private StudentClient studentClient;
+    private final StudentClient studentClient;
 
     @Override
     public List<Course> findAll() {

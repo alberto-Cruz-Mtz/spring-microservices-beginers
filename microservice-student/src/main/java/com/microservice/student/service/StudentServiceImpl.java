@@ -2,16 +2,17 @@ package com.microservice.student.service;
 
 import com.microservice.student.entities.Student;
 import com.microservice.student.persistence.StudentRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class StudentServiceImpl implements IStudentService {
 
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
     @Override
     public List<Student> findAll() {
